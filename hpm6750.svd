@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<device schemaVersion="1.3" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd">
+  <vendor>HPMICRO</vendor>
+  <name>HPM6750</name>
+  <series>HPM6700/HPM6400</series>
+  <version>1.0</version>
+  <description>HPM6700/HPM6400 device</description>
+  <licenseText>
+    /*
+ * Copyright (c) 2021-2022 hpmicro
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ *
+ */
+
+  </licenseText>
+  <addressUnitBits>8</addressUnitBits>
+  <width>32</width>
+
+  <size>32</size>
+  <resetValue>0x0</resetValue>
+  <resetMask>0xFFFFFFFF</resetMask>
+
+  <peripherals>
+    <peripheral>
+      <name>IOC</name>
+      <description>Input/Output Control</description>
+      <baseAddress>0xf4040000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xf64</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <cluster>
+          <dim>32</dim>
+          <dimIncrement>0x8</dimIncrement>
+          <name>pad_a[%s]</name>
+          <description>Controller for input/output pad A</description>
+          <addressOffset>0x0</addressOffset>
+          <register>
+            <name>function</name>
+            <description>Select function for this pad</description>
+            <addressOffset>0x0</addressOffset>
+            <size>32</size>
+            <resetValue>0x00000000</resetValue>
+            <resetMask>0x0001011F</resetMask>
+            <fields>
+              <field>
+                <name>loop_back</name>
+                <description>Enable loop-back output into input</description>
+                <bitOffset>16</bitOffset>
+                <bitWidth>1</bitWidth>
+                <enumeratedValues>
+                  <name>Enable</name>
+                  <enumeratedValue>
+                    <name>enable</name>
+                    <description>Function enabled</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>disable</name>
+                    <description>Function disabled</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>analog</name>
+                <description>Enable analog feature in pad</description>
+                <bitOffset>8</bitOffset>
+                <bitWidth>1</bitWidth>
+                <enumeratedValues derivedFrom="loop_back.Enable" />
+              </field>
+              <field>
+                <name>alternate</name>
+                <description>Select alternate function for this pad</description>
+                <bitOffset>0</bitOffset>
+                <bitWidth>5</bitWidth>
+              </field>
+            </fields>
+          </register>
+          <register>
+            <name>pad</name>
+            <description>Configurate pad settings</description>
+            <addressOffset>0x4</addressOffset>
+            <size>32</size>
+            <resetValue>0x00001010</resetValue>
+            <resetMask>0x00007817</resetMask>
+            <fields>
+              <field>
+                <name>voltage</name>
+                <description>Select pin voltage; only effective to high speed pads</description>
+                <bitOffset>14</bitOffset>
+                <bitWidth>1</bitWidth>
+                <enumeratedValues>
+                  <name>Voltage</name>
+                  <enumeratedValue>
+                    <name>V3P3</name>
+                    <description>3.3V</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>V1P8</name>
+                    <description>1.8V</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>open_drain</name>
+                <description>Enable or disable open-drain output</description>
+                <bitOffset>13</bitOffset>
+                <bitWidth>1</bitWidth>
+                <enumeratedValues derivedFrom="function.loop_back.Enable" />
+              </field>
+              <field>
+                <name>schmitt</name>
+                <description>schmitt trigger enable, only avaiable in high-speed IO</description>
+                <bitOffset>12</bitOffset>
+                <bitWidth>1</bitWidth>
+                <enumeratedValues derivedFrom="function.loop_back.Enable" />
+              </field>
+              <field>
+                <name>pull_direction</name>
+                <description>Pull direction on this pad if pull enabled</description>
+                <bitOffset>11</bitOffset>
+                <bitWidth>1</bitWidth>
+                <enumeratedValues>
+                  <name>Pull</name>
+                  <enumeratedValue>
+                    <name>up</name>
+                    <description>This pad is internally pulled up</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>down</name>
+                    <description>This pad is internally pulled down</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>pull_enable</name>
+                <description>Enable internal pull on this pin</description>
+                <bitOffset>4</bitOffset>
+                <bitWidth>1</bitWidth>
+                <enumeratedValues derivedFrom="function.loop_back.Enable" />
+              </field>
+              <field>
+                <name>drive_strength</name>
+                <description>Pad drive strength, differs from pin type and voltage</description>
+                <bitOffset>0</bitOffset>
+                <bitWidth>3</bitWidth>
+                <enumeratedValues>
+                  <name>DriveStrength</name>
+                  <enumeratedValue>
+                    <name>drive_0</name>
+                    <description>85.61Ω on 3.3V high speed, 84.07Ω on 1.8V high speed, 4mA on normal pad</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>drive_1</name>
+                    <description>61.2Ω on 3.3V high speed, 60.14Ω on 1.8V high speed, 8mA on normal pad</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>drive_2</name>
+                    <description>42.88Ω on 3.3V high speed, 42.15Ω on 1.8V high speed, N/A on normal pad</description>
+                    <value>2</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>drive_3</name>
+                    <description>35.76Ω on 3.3V high speed, 35.19Ω on 1.8V high speed, 12mA on normal pad</description>
+                    <value>3</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>drive_7</name>
+                    <description>30.67Ω on 3.3V high speed, 30.2Ω on 1.8V high speed, N/A on normal pad</description>
+                    <value>7</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+            </fields>
+          </register>
+        </cluster>
+        <cluster derivedFrom="pad_a[%s]">
+          <name>pad_b[%s]</name>
+          <description>Controller for input/output pad B</description>
+          <addressOffset>0x100</addressOffset>
+        </cluster>
+        <cluster derivedFrom="pad_a[%s]">
+          <name>pad_c[%s]</name>
+          <description>Controller for input/output pad C</description>
+          <addressOffset>0x200</addressOffset>
+        </cluster>
+        <cluster derivedFrom="pad_a[%s]">
+          <name>pad_d[%s]</name>
+          <description>Controller for input/output pad D</description>
+          <addressOffset>0x300</addressOffset>
+        </cluster>
+        <cluster derivedFrom="pad_a[%s]">
+          <name>pad_e[%s]</name>
+          <description>Controller for input/output pad E</description>
+          <addressOffset>0x400</addressOffset>
+        </cluster>
+        <cluster derivedFrom="pad_a[%s]">
+          <dim>11</dim>
+          <dimIncrement>0x8</dimIncrement>
+          <name>pad_f[%s]</name>
+          <description>Controller for input/output pad F</description>
+          <addressOffset>0x500</addressOffset>
+        </cluster>
+        <cluster derivedFrom="pad_a[%s]">
+          <dim>12</dim>
+          <dimIncrement>0x8</dimIncrement>
+          <name>pad_x[%s]</name>
+          <description>Controller for input/output pad X</description>
+          <addressOffset>0xd00</addressOffset>
+        </cluster>
+        <cluster derivedFrom="pad_a[%s]">
+          <dim>12</dim>
+          <dimIncrement>0x8</dimIncrement>
+          <name>pad_y[%s]</name>
+          <description>Controller for input/output pad Y</description>
+          <addressOffset>0xe00</addressOffset>
+        </cluster>
+        <cluster derivedFrom="pad_a[%s]">
+          <dim>12</dim>
+          <dimIncrement>0x8</dimIncrement>
+          <name>pad_z[%s]</name>
+          <description>Controller for input/output pad Z</description>
+          <addressOffset>0xf00</addressOffset>
+        </cluster>
+      </registers>
+    </peripheral>
+    <peripheral derivedFrom="IOC">
+      <name>PIOC</name>
+      <description>Power domain Input/Output Control</description>
+      <baseAddress>0xf40d8000</baseAddress>
+    </peripheral>
+    <peripheral derivedFrom="IOC">
+      <name>BIOC</name>
+      <description>Backup domain Input/Output Control</description>
+      <baseAddress>0xf5010000</baseAddress>
+    </peripheral>    
+  </peripherals>
+</device>

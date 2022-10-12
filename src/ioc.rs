@@ -23,32 +23,35 @@ pub struct RegisterBlock {
     #[doc = "0xf00..0xf60 - Controller for input/output pad Z"]
     pub pad_z: [PAD_Z; 12],
 }
-#[doc = "Controller for input/output pad A"]
-pub use self::pad_a::PAD_A;
+#[doc = "Controller for input/output pad"]
+pub use self::pad::PAD;
 #[doc = r"Cluster"]
+#[doc = "Controller for input/output pad"]
+pub mod pad;
+pub use self::pad as pad_a;
+pub use self::pad as pad_b;
+pub use self::pad as pad_c;
+pub use self::pad as pad_d;
+pub use self::pad as pad_e;
+pub use self::pad as pad_f;
+pub use self::pad as pad_x;
+pub use self::pad as pad_y;
+pub use self::pad as pad_z;
 #[doc = "Controller for input/output pad A"]
-pub mod pad_a;
-pub use self::pad_a as pad_b;
-pub use self::pad_a as pad_c;
-pub use self::pad_a as pad_d;
-pub use self::pad_a as pad_e;
-pub use self::pad_a as pad_f;
-pub use self::pad_a as pad_x;
-pub use self::pad_a as pad_y;
-pub use self::pad_a as pad_z;
+pub use self::PAD as PAD_A;
 #[doc = "Controller for input/output pad B"]
-pub use self::PAD_A as PAD_B;
+pub use self::PAD as PAD_B;
 #[doc = "Controller for input/output pad C"]
-pub use self::PAD_A as PAD_C;
+pub use self::PAD as PAD_C;
 #[doc = "Controller for input/output pad D"]
-pub use self::PAD_A as PAD_D;
+pub use self::PAD as PAD_D;
 #[doc = "Controller for input/output pad E"]
-pub use self::PAD_A as PAD_E;
+pub use self::PAD as PAD_E;
 #[doc = "Controller for input/output pad F"]
-pub use self::PAD_A as PAD_F;
+pub use self::PAD as PAD_F;
 #[doc = "Controller for input/output pad X"]
-pub use self::PAD_A as PAD_X;
+pub use self::PAD as PAD_X;
 #[doc = "Controller for input/output pad Y"]
-pub use self::PAD_A as PAD_Y;
+pub use self::PAD as PAD_Y;
 #[doc = "Controller for input/output pad Z"]
-pub use self::PAD_A as PAD_Z;
+pub use self::PAD as PAD_Z;

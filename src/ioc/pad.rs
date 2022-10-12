@@ -1,6 +1,6 @@
 #[doc = r"Register block"]
 #[repr(C)]
-pub struct PAD_A {
+pub struct PAD {
     #[doc = "0x00 - Select function for this pad"]
     pub function: FUNCTION,
     #[doc = "0x04 - Configurate pad settings"]

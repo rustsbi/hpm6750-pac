@@ -1,22 +1,22 @@
-#[doc = "Register `pad` reader"]
-pub struct R(crate::R<PAD_SPEC>);
+#[doc = "Register `config` reader"]
+pub struct R(crate::R<CONFIG_SPEC>);
 impl core::ops::Deref for R {
-    type Target = crate::R<PAD_SPEC>;
+    type Target = crate::R<CONFIG_SPEC>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
-impl From<crate::R<PAD_SPEC>> for R {
+impl From<crate::R<CONFIG_SPEC>> for R {
     #[inline(always)]
-    fn from(reader: crate::R<PAD_SPEC>) -> Self {
+    fn from(reader: crate::R<CONFIG_SPEC>) -> Self {
         R(reader)
     }
 }
-#[doc = "Register `pad` writer"]
-pub struct W(crate::W<PAD_SPEC>);
+#[doc = "Register `config` writer"]
+pub struct W(crate::W<CONFIG_SPEC>);
 impl core::ops::Deref for W {
-    type Target = crate::W<PAD_SPEC>;
+    type Target = crate::W<CONFIG_SPEC>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -28,9 +28,9 @@ impl core::ops::DerefMut for W {
         &mut self.0
     }
 }
-impl From<crate::W<PAD_SPEC>> for W {
+impl From<crate::W<CONFIG_SPEC>> for W {
     #[inline(always)]
-    fn from(writer: crate::W<PAD_SPEC>) -> Self {
+    fn from(writer: crate::W<CONFIG_SPEC>) -> Self {
         W(writer)
     }
 }
@@ -98,7 +98,7 @@ impl DRIVE_STRENGTH_R {
 }
 #[doc = "Field `drive_strength` writer - Pad drive strength, differs from pin type and voltage"]
 pub type DRIVE_STRENGTH_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, PAD_SPEC, u8, DRIVE_STRENGTH_A, 3, O>;
+    crate::FieldWriter<'a, u32, CONFIG_SPEC, u8, DRIVE_STRENGTH_A, 3, O>;
 impl<'a, const O: u8> DRIVE_STRENGTH_W<'a, O> {
     #[doc = "85.61Ω on 3.3V high speed, 84.07Ω on 1.8V high speed, 4mA on normal pad"]
     #[inline(always)]
@@ -131,7 +131,7 @@ pub use super::function::ENABLE_A;
 #[doc = "Field `pull_enable` reader - Enable internal pull on this pin"]
 pub use super::function::LOOP_BACK_R as PULL_ENABLE_R;
 #[doc = "Field `pull_enable` writer - Enable internal pull on this pin"]
-pub type PULL_ENABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, PAD_SPEC, ENABLE_A, O>;
+pub type PULL_ENABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONFIG_SPEC, ENABLE_A, O>;
 #[doc = "Field `pull_direction` reader - Pull direction on this pad if pull enabled"]
 pub type PULL_DIRECTION_R = crate::BitReader<PULL_A>;
 #[doc = "Pull direction on this pad if pull enabled\n\nValue on reset: 0"]
@@ -169,7 +169,7 @@ impl PULL_DIRECTION_R {
     }
 }
 #[doc = "Field `pull_direction` writer - Pull direction on this pad if pull enabled"]
-pub type PULL_DIRECTION_W<'a, const O: u8> = crate::BitWriter<'a, u32, PAD_SPEC, PULL_A, O>;
+pub type PULL_DIRECTION_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONFIG_SPEC, PULL_A, O>;
 impl<'a, const O: u8> PULL_DIRECTION_W<'a, O> {
     #[doc = "This pad is internally pulled up"]
     #[inline(always)]
@@ -185,11 +185,11 @@ impl<'a, const O: u8> PULL_DIRECTION_W<'a, O> {
 #[doc = "Field `schmitt` reader - schmitt trigger enable, only avaiable in high-speed IO"]
 pub use super::function::LOOP_BACK_R as SCHMITT_R;
 #[doc = "Field `schmitt` writer - schmitt trigger enable, only avaiable in high-speed IO"]
-pub type SCHMITT_W<'a, const O: u8> = crate::BitWriter<'a, u32, PAD_SPEC, ENABLE_A, O>;
+pub type SCHMITT_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONFIG_SPEC, ENABLE_A, O>;
 #[doc = "Field `open_drain` reader - Enable or disable open-drain output"]
 pub use super::function::LOOP_BACK_R as OPEN_DRAIN_R;
 #[doc = "Field `open_drain` writer - Enable or disable open-drain output"]
-pub type OPEN_DRAIN_W<'a, const O: u8> = crate::BitWriter<'a, u32, PAD_SPEC, ENABLE_A, O>;
+pub type OPEN_DRAIN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONFIG_SPEC, ENABLE_A, O>;
 #[doc = "Field `voltage` reader - Select pin voltage; only effective to high speed pads"]
 pub type VOLTAGE_R = crate::BitReader<VOLTAGE_A>;
 #[doc = "Select pin voltage; only effective to high speed pads\n\nValue on reset: 0"]
@@ -227,7 +227,7 @@ impl VOLTAGE_R {
     }
 }
 #[doc = "Field `voltage` writer - Select pin voltage; only effective to high speed pads"]
-pub type VOLTAGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, PAD_SPEC, VOLTAGE_A, O>;
+pub type VOLTAGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONFIG_SPEC, VOLTAGE_A, O>;
 impl<'a, const O: u8> VOLTAGE_W<'a, O> {
     #[doc = "3.3V"]
     #[inline(always)]
@@ -310,21 +310,21 @@ impl W {
         self
     }
 }
-#[doc = "Configurate pad settings\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pad](index.html) module"]
-pub struct PAD_SPEC;
-impl crate::RegisterSpec for PAD_SPEC {
+#[doc = "Configurate pad settings\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [config](index.html) module"]
+pub struct CONFIG_SPEC;
+impl crate::RegisterSpec for CONFIG_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [pad::R](R) reader structure"]
-impl crate::Readable for PAD_SPEC {
+#[doc = "`read()` method returns [config::R](R) reader structure"]
+impl crate::Readable for CONFIG_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [pad::W](W) writer structure"]
-impl crate::Writable for PAD_SPEC {
+#[doc = "`write(|w| ..)` method takes [config::W](W) writer structure"]
+impl crate::Writable for CONFIG_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets pad to value 0x1010"]
-impl crate::Resettable for PAD_SPEC {
+#[doc = "`reset()` method sets config to value 0x1010"]
+impl crate::Resettable for CONFIG_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {
         0x1010

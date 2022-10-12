@@ -35,6 +35,7 @@
         <cluster>
           <dim>32</dim>
           <dimIncrement>0x8</dimIncrement>
+          <dimName>pad</dimName>
           <name>pad_a[%s]</name>
           <description>Controller for input/output pad A</description>
           <addressOffset>0x0</addressOffset>
@@ -81,7 +82,7 @@
             </fields>
           </register>
           <register>
-            <name>pad</name>
+            <name>config</name>
             <description>Configurate pad settings</description>
             <addressOffset>0x4</addressOffset>
             <size>32</size>
